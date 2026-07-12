@@ -429,3 +429,15 @@ main { max-width: 1000px; margin: 0 auto; padding: 10px 20px 60px; }
   margin: 40px auto;
   border-radius: 6px; /* remove/comment out if you don't want the arch shape logic below */
 }
+
+.home-info-box {
+  max-width: 480px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.home-info-box p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--ink);
+}
