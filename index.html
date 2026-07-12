@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhushri's Arangetram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">&#10022;</span>
+    <h1>Madhushri's Arangetram</h1>
+    <span class="brand-mark">&#10022;</span>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-page="home">Home</button>
+    <button class="tab-btn" data-page="invitation">Invitation</button>
+    <button class="tab-btn" data-page="program">Program</button>
+    <button class="tab-btn" data-page="performers">Performers</button>
+    <button class="tab-btn" data-page="livestream">Live Stream</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ================= HOME ================= -->
+  <section id="home" class="page active">
+    <div class="kolam-divider" aria-hidden="true"></div>
+    <div class="image-frame home-frame">
+      <!-- INSERT IMAGE: place your home page photo at images/home.jpg -->
+      <img src="images/home.jpg" alt="Home"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder">
+        <span class="placeholder-title">INSERT IMAGE</span>
+        <span class="placeholder-path">images/home.jpg</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAGE 1: INVITATION ================= -->
+  <section id="invitation" class="page">
+    <div class="kolam-divider" aria-hidden="true"></div>
+    <h2 class="page-title">You're Invited!</h2>
+    <div class="card invitation-card">
+      <div class="image-frame arch large">
+        <!-- INSERT IMAGE: place your invitation photo/scan at images/invitation.jpg -->
+        <img src="images/invitation.jpg" alt="Arangetram invitation"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder">
+          <span class="placeholder-title">INSERT IMAGE</span>
+          <span class="placeholder-path">images/invitation.jpg</span>
+        </div>
+      </div>
+      <p class="invitation-note">
+        <!-- Edit this text: add your invitation wording, date, time, and venue here if you'd like it below the image -->
+        Join us in celebrating Madhushri's Bharathanatyam Arangetram!
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= PAGE 2: PROGRAM (flipbook) ================= -->
+  <section id="program" class="page">
+    <div class="kolam-divider" aria-hidden="true"></div>
+    <h2 class="page-title">Program</h2>
+    <div class="book-wrap">
+      <button class="arrow prev" id="prevPage" aria-label="Previous page">&#10094;</button>
+      <div class="book" id="book">
+        <div class="book-page" id="bookPage">
+          <!-- Page content is injected by js/script.js -->
+        </div>
+      </div>
+      <button class="arrow next" id="nextPage" aria-label="Next page">&#10095;</button>
+    </div>
+    <p class="page-counter" id="pageCounter">Page 1 of 8</p>
+  </section>
+
+  <!-- ================= PAGE 3: PERFORMERS ================= -->
+  <section id="performers" class="page">
+    <div class="kolam-divider" aria-hidden="true"></div>
+    <h2 class="page-title">Performers</h2>
+
+    <!-- Dancer -->
+    <div class="performer-block">
+      <div class="image-frame arch">
+        <!-- INSERT IMAGE: place the dancer's photo at images/dancer.jpg -->
+        <img src="images/dancer.jpg" alt="Dancer"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder">
+          <span class="placeholder-title">INSERT IMAGE</span>
+          <span class="placeholder-path">images/dancer.jpg</span>
+        </div>
+      </div>
+      <div class="performer-text">
+        <h3>Sishya (Student): Madhushri Muthuraj</h3>
+        <!-- Edit this text: write the dancer's bio/description here -->
+        <p>Madhushri started learning Bharatanatyam under the tutelage of Dr. Janaki Rangarajan at age 6. She has been learning Bharatanatyam for 9 years now. She has participated in many annual day functions and performances under Dr. Janaki’s guidance.
+
+Madhushri is a rising 10th grader at the Center for Leadership, Government, and Global Economics at Douglas S. Freeman High School. In the future, she wishes to pursue a career in either Law or Engineering.
+
+Outside of dance, she has played tennis for 4 years, playing on her school’s team in middle and high school. She also enjoys crocheting and playing the cello. She participated in robotics for 3 years, on a VEX robotics team, making it to the state tournament 2 of the 3 years. In school, Madhushri also participates in numerous extracurriculars, including Model UN and Mock Trial.
+
+While learning dance over the past years, Madhushri has learnt numerous skills that have aided her in activities in and out of dance. She has learnt discipline, punctuality, responsibility, respect, and so much more. She wishes to continue learning dance and life lessons from Dr. Janaki in coming years. 
+
+</p>
+      </div>
+    </div>
+
+    <div class="thread-divider" aria-hidden="true"></div>
+
+    <!-- Guru -->
+    <div class="performer-block reverse">
+      <div class="image-frame arch">
+        <!-- INSERT IMAGE: place the guru's photo at images/guru.jpg -->
+        <img src="images/guru.jpg" alt="Guru"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder">
+          <span class="placeholder-title">INSERT IMAGE</span>
+          <span class="placeholder-path">images/guru.jpg</span>
+        </div>
+      </div>
+      <div class="performer-text">
+        <h3>Guru (Teacher): Dr. Janaki Rangarajan</h3>
+        <!-- Edit this text: write the guru's bio/description here -->
+        <p>Dr. Janaki Rangarajan started learning the South Indian classical dance form, Bharatanatyam, at the tender age of four and since then, has given numerous performances all over India, the United States, Canada, Europe and around the world. Dr. Janaki had the distinction of being the youngest of her Guru’s students to be featured in the television series on the Natyasastra that was aired on India’s national television, Doordarshan. Dr. Janaki has the honor of receiving many prestigious awards including “Vasanthalakshmi - Narasimhachari Award” from Narada Gana Sabha, “Nadanamamani- Shriram Award of Excellence” from Kartik Fine Arts, “Kala Rathna” from Cleveland Thyagaraja Aradhana, “NCA excellence award” from Nungambakkam Cultural Trust, “Singar mani” from Sur Singar Samsad and “Sathya Nrithya Sundaram” from Bharathanjali Trust. She is a graded artist for Doordarshan. She is also an empanelled artist of the Indian Council for Cultural Relations (ICCR). She is an empanelled artist of the Creative Arts Programs (CAPs) of the Arts Council of Fairfax County and has also received the 2010 Strauss Fellowship for “Choreography”. </p>
+      </div>
+    </div>
+
+    <div class="thread-divider" aria-hidden="true"></div>
+
+    <!-- Orchestra -->
+    <h3 class="section-label">Orchestra</h3>
+    <div class="orchestra-grid">
+
+      <div class="orchestra-member">
+        <!-- Edit this text: instrument/role and short description -->
+        <h5 style="font-size: 1.2rem;">Sweta Balasubramanian, Vocals</h5>
+        <p class="orchestra-caption">Sweta Balasubramanian hails from the legendary Veena Karaikudi Subbarama Iyer family. She’s a disciple of Vid. Neyveli R Santhanagopalan. Sweta holds a Masters in Music. She’s a B High graded artist of AIR, Chennai. A regular performer in all the sabhas, she holds many awards and accolades for her authentic performances. She’s a dedicated teacher who runs the Samagana School of Carnatic Music, Chennai. She’s currently a faculty of Music at the TNJJMFAU, Adyar. </p>
+      </div>
+
+      <div class="orchestra-member">
+        <!-- Edit this text: instrument/role and short description -->
+        <h5 style="font-size: 1.2rem;">Sarvesh Karthick, Mridhangam</h5>
+        <p class="orchestra-caption">Sarvesh Karthick is a young proficient Mridhangam artiste, acclaimed as a multifaceted talent. Sarvesh received intensive traditional training on the Mridhangam from Guru Sangita Kala Acharya Sri.T.H.Subash Chandran and his father Kalaimamani Ghatam Dr.S. Karthick. Sarvesh has performed and toured extensively all around India, USA, Singapore and Dubai with many young stars and senior artistes, music directors, reputed dancers and world musicians. Sarvesh is the recipient of numerous awards and titles like - Yuva Kala Bharathi, Laya Ilavarasu, Sangeetha Nakshatra and Sangeetha Mudhra.</p>
+      </div>
+
+      <div class="orchestra-member">
+        <!-- Edit this text: instrument/role and short description -->
+        <h5 style="font-size: 1.2rem;">T. V. Sukanya, Violin</h5>
+        <p class="orchestra-caption">T. V. Sukanya started her initial training under Shri. Vittal Ramamurthy, Smt. Rekha, Shri A G A GnyanaSundaram, Shri. C N Srinivasa murthy and later  received training from Lalgudi.Smt.Vijayalakshmi. </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PAGE 4: LIVE STREAM ================= -->
+  <section id="livestream" class="page">
+    <div class="kolam-divider" aria-hidden="true"></div>
+    <h2 class="page-title">Live Stream</h2>
+    <div class="card stream-card">
+
+      <!--
+        EDIT ME: set the event date/time your countdown should count down to.
+        Format: "YYYY-MM-DDTHH:MM:SS" in 24-hour time, in the timezone below.
+        Example shown counts down to Aug 15, 2026, 6:00 PM Eastern Time.
+      -->
+      <div class="countdown" id="countdown" data-target="2026-07-19T08:00:00-04:00">
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+      <p class="countdown-message" id="countdownMessage"></p>
+
+      <div class="video-frame">
+        <!--
+          INSERT YOUTUBE LINK:
+          Replace VIDEO_ID below with your YouTube video or livestream ID.
+          Example: if your link is https://www.youtube.com/watch?v=ABC12345XYZ
+          then VIDEO_ID is ABC12345XYZ https://www.youtube.com/embed/VIDEO_ID
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          title="Madhushri's Arangetram Live Stream"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="stream-note">The live stream will appear here on the day of the event. Check back soon!</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="kolam-divider" aria-hidden="true"></div>
+  <p>With gratitude &mdash; Muthuraj, Kalaiselvy, Pooja, and Madhushri</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

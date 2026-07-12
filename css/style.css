@@ -1,0 +1,431 @@
+/* =========================================================
+   MADHUSHRI'S ARANGETRAM — theme tokens
+   Navy header, orange page background, gold ornament accents
+   (gold + arch motifs nod to temple gopurams & dance jewelry)
+========================================================= */
+:root {
+  --navy: #16213E;
+  --navy-light: #24345C;
+  --orange: #E4772E;
+  --orange-deep: #C25E1E;
+  --gold: #D4AF37;
+  --cream: #FFF6E9;
+  --ink: #1B2A4A;
+
+  --font-display: 'Yatra One', cursive;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--orange);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* ---------------- Top bar ---------------- */
+.topbar {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 18px 24px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.brand h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.5px;
+  margin: 0;
+  color: var(--gold);
+  text-align: center;
+}
+
+.brand-mark {
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(212,175,55,0.35);
+  padding-top: 6px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 12px 20px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab-btn:hover { color: var(--gold); }
+
+.tab-btn.active { color: var(--gold); }
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 0;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 3px 3px 0 0;
+}
+
+/* ---------------- Page layout ---------------- */
+main { max-width: 1000px; margin: 0 auto; padding: 10px 20px 60px; }
+
+.page { display: none; animation: fadeIn 0.35s ease; }
+.page.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--navy);
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  text-align: center;
+  margin: 18px 0 6px;
+}
+
+/* Kolam-inspired dotted divider: a nod to the dot-grid rangoli
+   patterns drawn outside South Indian homes for celebrations */
+.kolam-divider {
+  height: 14px;
+  margin: 0 auto 8px;
+  max-width: 260px;
+  background-image: radial-gradient(var(--navy) 2px, transparent 2.5px);
+  background-size: 16px 16px;
+  background-position: center;
+  opacity: 0.55;
+}
+
+.thread-divider {
+  height: 2px;
+  max-width: 520px;
+  margin: 36px auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ---------------- Cards ---------------- */
+.card {
+  background: var(--cream);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(22,33,62,0.25);
+  border: 1px solid rgba(212,175,55,0.4);
+}
+
+/* ---------------- Image frames (temple-arch shape) ---------------- */
+.image-frame {
+  position: relative;
+  width: 260px;
+  max-width: 100%;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto 18px;
+  background: var(--navy);
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  border: 3px solid var(--gold);
+}
+
+.image-frame.arch {
+  border-radius: border-radius: 24px;
+}
+
+.image-frame.large { width: 550px; aspect-ratio: 5/4; }
+.image-frame.small { width: 170px; aspect-ratio: 1 / 1; }
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-frame .placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--cream);
+  background: repeating-linear-gradient(45deg, var(--navy-light), var(--navy-light) 10px, var(--navy) 10px, var(--navy) 20px);
+  padding: 10px;
+}
+
+.placeholder-title {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  color: var(--gold);
+}
+
+.placeholder-path {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+/* ---------------- Invitation page ---------------- */
+.invitation-card { text-align: center; max-width: 520px; margin: 0 auto; }
+.invitation-note { font-size: 1rem; line-height: 1.6; color: var(--ink); }
+
+/* ---------------- Performers page ---------------- */
+.performer-block {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.performer-block.reverse { flex-direction: row-reverse; }
+
+.performer-text { flex: 1; }
+
+.performer-text h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--navy);
+  font-size: 1.6rem;
+  margin: 0 0 8px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.performer-text p { line-height: 1.6; margin: 0; }
+
+.section-label {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--navy);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.orchestra-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.orchestra-member {
+  width: 200px;
+  text-align: center;
+}
+
+.orchestra-caption { font-size: 0.9rem; line-height: 1.5; }
+
+/* ---------------- Program / flipbook page ---------------- */
+.book-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.book {
+  perspective: 1800px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.book-page {
+  background: var(--navy);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 14px 32px rgba(22,33,62,0.3);
+  width: 100%;
+  aspect-ratio: 5/7; /* height : width = 1.5 : 1 */
+  overflow: hidden;
+  position: relative;
+  transform-origin: left center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.book-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.book-page .placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--cream);
+  background: repeating-linear-gradient(45deg, var(--navy-light), var(--navy-light) 10px, var(--navy) 10px, var(--navy) 20px);
+  padding: 10px;
+}
+
+.book-page.turning-next {
+  transform: rotateY(-18deg) scale(0.97);
+  opacity: 0;
+}
+
+.book-page.turning-prev {
+  transform: rotateY(18deg) scale(0.97);
+  opacity: 0;
+}
+
+.arrow {
+  background: var(--navy);
+  color: var(--gold);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.arrow:hover { background: var(--navy-light); transform: scale(1.08); }
+.arrow:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.page-counter {
+  text-align: center;
+  margin-top: 14px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* ---------------- Live stream page ---------------- */
+.stream-card { max-width: 720px; margin: 0 auto; text-align: center; }
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 10px;
+  overflow: hidden;
+  border: 3px solid var(--gold);
+  background: var(--navy);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.stream-note { margin-top: 16px; color: var(--ink); }
+
+/* ---------------- Countdown timer ---------------- */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.countdown-unit {
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  min-width: 72px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+.countdown-message {
+  text-align: center;
+  color: var(--navy);
+  font-weight: 600;
+  margin: 4px 0 22px;
+}
+
+@media (max-width: 480px) {
+  .countdown-unit { min-width: 60px; padding: 10px 6px; }
+  .countdown-value { font-size: 1.4rem; }
+}
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+  text-align: center;
+  padding: 30px 20px 40px;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 680px) {
+  .performer-block, .performer-block.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+  .book-page { padding: 24px 20px; min-height: 360px; }
+  .card { padding: 22px; }
+}
+
+.home-frame {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 2 / 5; /* width : height = 1 : 4 */
+  margin: 40px auto;
+  border-radius: 6px; /* remove/comment out if you don't want the arch shape logic below */
+}

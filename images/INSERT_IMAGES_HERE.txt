@@ -1,0 +1,17 @@
+Add your photos to this "images" folder using these exact file names,
+and they will automatically appear on the website (no code changes needed):
+
+  invitation.jpg    -> Invitation page photo/scan
+  dancer.jpg        -> Performers page, "Dancer" section
+  guru.jpg          -> Performers page, "Guru" section
+  orchestra1.jpg    -> Performers page, Orchestra member 1
+  orchestra2.jpg    -> Performers page, Orchestra member 2
+  orchestra3.jpg    -> Performers page, Orchestra member 3
+
+Tips:
+- .jpg, .jpeg, .png, or .webp all work — just update the file extension
+  in index.html if you use something other than .jpg
+- Until you add a real photo, the site shows an "INSERT IMAGE" placeholder
+  automatically, so you'll always know where a picture is still needed.
+- Photos roughly in a portrait orientation (taller than wide) will look
+  best in the arched frames.
