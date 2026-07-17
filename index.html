@@ -218,7 +218,7 @@ While learning dance over the past years, Madhushri has learnt numerous skills t
       <button class="nav-arrow prev-btn" id="prev-page-btn">&#10094;</button>
       
       <div class="book" id="guestbook-flip">
-        <!-- Page 1 (Cover/Intro) -->
+        <!-- Page 1 (Cover / Intro) -->
         <div class="book-page active-page" data-page-index="0">
           <div class="page-content cover-page">
             <h3>Welcome to the Guestbook</h3>
@@ -230,7 +230,7 @@ While learning dance over the past years, Madhushri has learnt numerous skills t
         <!-- Page 2 -->
         <div class="book-page" data-page-index="1">
           <div class="page-content lined-paper">
-            <div class="note-container" id="note-1">
+            <div class="note-container">
               <p class="handwriting-text">Wishing you a lifetime of success and brilliant performances! Your dedication shines bright. - Priya & Family</p>
             </div>
           </div>
@@ -239,20 +239,31 @@ While learning dance over the past years, Madhushri has learnt numerous skills t
         <!-- Page 3 -->
         <div class="book-page" data-page-index="2">
           <div class="page-content lined-paper">
-            <div class="note-container" id="note-2">
+            <div class="note-container">
               <p class="handwriting-text">An incredible performance! Absolutely mesmerizing expressions and footwork. So proud of you! - Anand</p>
             </div>
           </div>
         </div>
 
-        <!-- Page 4 (Your Editable Note) -->
-        <div class="book-page" data-page-index="3">
-          <div class="page-content lined-paper">
-            <div class="note-container" id="user-note-container">
-              <p class="handwriting-text empty-hint" id="user-note-text">Your note will appear here. Click 'Write Note' below to edit!</p>
-            </div>
-          </div>
-        </div>
+        <!-- Pages 4 through 20 (Blank Template Elements) -->
+        <!-- The JavaScript code will automatically read these containers -->
+        <div class="book-page" data-page-index="3"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="4"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="5"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="6"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="7"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="8"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="9"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="10"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="11"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="12"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="13"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="14"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="15"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="16"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="17"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="18"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
+        <div class="book-page" data-page-index="19"><div class="page-content lined-paper"><div class="note-container"><p class="handwriting-text empty-hint">Your note will appear here. Click 'Write Note' below to edit!</p></div></div></div>
       </div>
 
       <button class="nav-arrow next-btn" id="next-page-btn">&#10095;</button>
@@ -260,17 +271,17 @@ While learning dance over the past years, Madhushri has learnt numerous skills t
 
     <!-- Controls below the book -->
     <div class="guestbook-controls">
-      <button class="action-btn edit-btn" id="edit-note-btn" disabled>Write Note (Go to Page 4)</button>
+      <button class="action-btn edit-btn" id="edit-note-btn">Write Note</button>
     </div>
 
-    <!-- Modal for Editing Your Specific Note -->
+    <!-- Modal for Editing -->
     <div class="guestbook-modal" id="guestbook-modal">
       <div class="modal-content">
         <h3>Leave your blessing</h3>
         <textarea id="note-textarea" placeholder="Type your note here..." maxlength="250"></textarea>
         <div class="modal-actions">
           <button class="action-btn cancel-btn" id="cancel-note-btn">Cancel</button>
-          <button class="action-btn save-btn" id="save-note-btn">Save to Page 4</button>
+          <button class="action-btn save-btn" id="save-note-btn">Save Note</button>
         </div>
       </div>
     </div>
