@@ -110,7 +110,6 @@ if (countdownEl) {
   const countdownInterval = setInterval(updateCountdown, 1000);
 }
 document.addEventListener("DOMContentLoaded", () => {
-  // Use a unique name like 'gbPages' to avoid clashing with the global 'pages' variable
   const gbPages = document.querySelectorAll(".book-page");
   const prevBtn = document.getElementById("prev-page-btn");
   const nextBtn = document.getElementById("next-page-btn");
@@ -119,13 +118,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelBtn = document.getElementById("cancel-note-btn");
   const saveBtn = document.getElementById("save-note-btn");
   const textarea = document.getElementById("note-textarea");
-  const userNoteText = document.getElementById("user-note-text");
 
-  // Safeguard: Only run if the guestbook elements actually exist on the current page
   if (!prevBtn || !nextBtn || !editBtn) return;
 
   let currentPageIndex = 0;
-  const userEditablePageIndex = 3; // Page index 3 is Page 4
+
+  // Helper helper to locate the first available unwritten page index
+  function getFirstEmptyPageIndex() {
+    for (let i = 0; i < gbPages.length; i++) {
+      const emptyHint = gbPages[i].querySelector(".empty-hint");
+      if (emptyHint) {
+        return i;
+      }
+    }
+    return -1; // All pages are full
+  }
 
   function updatePageVisibility() {
     gbPages.forEach((page, idx) => {
@@ -136,17 +143,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Handle the button states dynamically
-    if (currentPageIndex === userEditablePageIndex) {
-      editBtn.removeAttribute("disabled");
-      editBtn.textContent = "Write / Edit Your Note";
+    const firstEmptyIdx = getFirstEmptyPageIndex();
+    
+    // UI Label logic changes based on where the user currently is standing
+    if (currentPageIndex === firstEmptyIdx) {
+      editBtn.textContent = "Write Note on This Page";
+    } else if (firstEmptyIdx !== -1) {
+      editBtn.textContent = `Go to Next Empty Page (Page ${firstEmptyIdx + 1})`;
     } else {
-      editBtn.setAttribute("disabled", "true");
-      editBtn.textContent = "Flip to Page 4 to Edit Note";
+      editBtn.textContent = "Guestbook Full!";
     }
   }
 
-  // Navigation Logic
+  // Navigation Arrows
   nextBtn.addEventListener("click", () => {
     if (currentPageIndex < gbPages.length - 1) {
       currentPageIndex++;
@@ -161,12 +170,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Modal Control Logic
+  // Action Button behavior logic
   editBtn.addEventListener("click", () => {
-    if (currentPageIndex === userEditablePageIndex) {
-      if (userNoteText && !userNoteText.classList.contains("empty-hint")) {
-        textarea.value = userNoteText.textContent;
-      }
+    const firstEmptyIdx = getFirstEmptyPageIndex();
+
+    if (firstEmptyIdx === -1) {
+      alert("The guestbook is currently full!");
+      return;
+    }
+
+    // If they aren't on the empty page yet, flip them there automatically first
+    if (currentPageIndex !== firstEmptyIdx) {
+      currentPageIndex = firstEmptyIdx;
+      updatePageVisibility();
+    } else {
+      // If they are already standing on the empty page, pop open the editor modal
+      textarea.value = "";
       if (modal) modal.style.display = "flex";
     }
   });
@@ -174,27 +193,30 @@ document.addEventListener("DOMContentLoaded", () => {
   if (cancelBtn) {
     cancelBtn.addEventListener("click", () => {
       if (modal) modal.style.display = "none";
-      if (textarea) textarea.value = "";
     });
   }
 
   if (saveBtn) {
     saveBtn.addEventListener("click", () => {
-      if (!textarea || !userNoteText) return;
       const textValue = textarea.value.trim();
-      if (textValue) {
-        userNoteText.textContent = textValue;
-        userNoteText.classList.remove("empty-hint");
-      } else {
-        userNoteText.textContent = "Your note will appear here. Click 'Write Note' below to edit!";
-        userNoteText.classList.add("empty-hint");
+      if (!textValue) return;
+
+      // Target the exact empty note container on the current page view
+      const targetTextNode = gbPages[currentPageIndex].querySelector(".handwriting-text");
+      
+      if (targetTextNode) {
+        targetTextNode.textContent = textValue;
+        targetTextNode.classList.remove("empty-hint");
       }
+
       if (modal) modal.style.display = "none";
+      updatePageVisibility(); // Recalculate states and bump targets forward
     });
   }
 
-  // Setup Initial State
+  // Set initial cover visual state 
   updatePageVisibility();
 });
+
 renderPage();
 
