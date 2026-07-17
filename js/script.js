@@ -109,5 +109,84 @@ if (countdownEl) {
   updateCountdown();
   const countdownInterval = setInterval(updateCountdown, 1000);
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const pages = document.querySelectorAll(".book-page");
+  const prevBtn = document.getElementById("prev-page-btn");
+  const nextBtn = document.getElementById("next-page-btn");
+  const editBtn = document.getElementById("edit-note-btn");
+  const modal = document.getElementById("guestbook-modal");
+  const cancelBtn = document.getElementById("cancel-note-btn");
+  const saveBtn = document.getElementById("save-note-btn");
+  const textarea = document.getElementById("note-textarea");
+  const userNoteText = document.getElementById("user-note-text");
+
+  let currentPageIndex = 0;
+  const userEditablePageIndex = 3; // Page index 3 is Page 4
+
+  function updatePageVisibility() {
+    pages.forEach((page, idx) => {
+      if (idx === currentPageIndex) {
+        page.classList.add("active-page");
+      } else {
+        page.classList.remove("active-page");
+      }
+    });
+
+    // Only allow clicking edit if the user is explicitly viewing their own page (Page 4)
+    if (currentPageIndex === userEditablePageIndex) {
+      editBtn.removeAttribute("disabled");
+      editBtn.textContent = "Write / Edit Your Note";
+    } else {
+      editBtn.setAttribute("disabled", "true");
+      editBtn.textContent = "Flip to Page 4 to Edit Note";
+    }
+  }
+
+  // Navigation Logic
+  nextBtn.addEventListener("click", () => {
+    if (currentPageIndex < pages.length - 1) {
+      currentPageIndex++;
+      updatePageVisibility();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentPageIndex > 0) {
+      currentPageIndex--;
+      updatePageVisibility();
+    }
+  });
+
+  // Modal Control Logic
+  editBtn.addEventListener("click", () => {
+    if (currentPageIndex === userEditablePageIndex) {
+      // Pre-fill text area if they've already written something
+      if (!userNoteText.classList.contains("empty-hint")) {
+        textarea.value = userNoteText.textContent;
+      }
+      modal.style.display = "flex";
+    }
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    textarea.value = "";
+  });
+
+  saveBtn.addEventListener("click", () => {
+    const textValue = textarea.value.trim();
+    if (textValue) {
+      userNoteText.textContent = textValue;
+      userNoteText.classList.remove("empty-hint");
+    } else {
+      userNoteText.textContent = "Your note will appear here. Click 'Write Note' below to edit!";
+      userNoteText.classList.add("empty-hint");
+    }
+    modal.style.display = "none";
+  });
+
+  // Setup Initial State
+  updatePageVisibility();
+});
 renderPage();
 
