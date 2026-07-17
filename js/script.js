@@ -110,7 +110,8 @@ if (countdownEl) {
   const countdownInterval = setInterval(updateCountdown, 1000);
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const pages = document.querySelectorAll(".book-page");
+  // Use a unique name like 'gbPages' to avoid clashing with the global 'pages' variable
+  const gbPages = document.querySelectorAll(".book-page");
   const prevBtn = document.getElementById("prev-page-btn");
   const nextBtn = document.getElementById("next-page-btn");
   const editBtn = document.getElementById("edit-note-btn");
@@ -120,11 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const textarea = document.getElementById("note-textarea");
   const userNoteText = document.getElementById("user-note-text");
 
+  // Safeguard: Only run if the guestbook elements actually exist on the current page
+  if (!prevBtn || !nextBtn || !editBtn) return;
+
   let currentPageIndex = 0;
   const userEditablePageIndex = 3; // Page index 3 is Page 4
 
   function updatePageVisibility() {
-    pages.forEach((page, idx) => {
+    gbPages.forEach((page, idx) => {
       if (idx === currentPageIndex) {
         page.classList.add("active-page");
       } else {
@@ -132,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Only allow clicking edit if the user is explicitly viewing their own page (Page 4)
+    // Handle the button states dynamically
     if (currentPageIndex === userEditablePageIndex) {
       editBtn.removeAttribute("disabled");
       editBtn.textContent = "Write / Edit Your Note";
@@ -144,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Navigation Logic
   nextBtn.addEventListener("click", () => {
-    if (currentPageIndex < pages.length - 1) {
+    if (currentPageIndex < gbPages.length - 1) {
       currentPageIndex++;
       updatePageVisibility();
     }
@@ -160,30 +164,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Modal Control Logic
   editBtn.addEventListener("click", () => {
     if (currentPageIndex === userEditablePageIndex) {
-      // Pre-fill text area if they've already written something
-      if (!userNoteText.classList.contains("empty-hint")) {
+      if (userNoteText && !userNoteText.classList.contains("empty-hint")) {
         textarea.value = userNoteText.textContent;
       }
-      modal.style.display = "flex";
+      if (modal) modal.style.display = "flex";
     }
   });
 
-  cancelBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    textarea.value = "";
-  });
+  if (cancelBtn) {
+    cancelBtn.addEventListener("click", () => {
+      if (modal) modal.style.display = "none";
+      if (textarea) textarea.value = "";
+    });
+  }
 
-  saveBtn.addEventListener("click", () => {
-    const textValue = textarea.value.trim();
-    if (textValue) {
-      userNoteText.textContent = textValue;
-      userNoteText.classList.remove("empty-hint");
-    } else {
-      userNoteText.textContent = "Your note will appear here. Click 'Write Note' below to edit!";
-      userNoteText.classList.add("empty-hint");
-    }
-    modal.style.display = "none";
-  });
+  if (saveBtn) {
+    saveBtn.addEventListener("click", () => {
+      if (!textarea || !userNoteText) return;
+      const textValue = textarea.value.trim();
+      if (textValue) {
+        userNoteText.textContent = textValue;
+        userNoteText.classList.remove("empty-hint");
+      } else {
+        userNoteText.textContent = "Your note will appear here. Click 'Write Note' below to edit!";
+        userNoteText.classList.add("empty-hint");
+      }
+      if (modal) modal.style.display = "none";
+    });
+  }
 
   // Setup Initial State
   updatePageVisibility();
